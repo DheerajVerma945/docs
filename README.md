@@ -1,44 +1,144 @@
-# Mintlify Starter Kit
 
-Use the starter kit to get your docs deployed and ready to customize.
+- # AncestroPedia - Backend Server
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+  \![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge\\&logo=nodedotjs\\&logoColor=white)
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+  \![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge\\&logo=express\\&logoColor=white)
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+  \![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge\\&logo=mongodb\\&logoColor=white)
 
-## Development
+  \![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge\\&logo=redis\\&logoColor=white)
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+  \![Passport.js](https://img.shields.io/badge/Passport-34E27A?style=for-the-badge\\&logo=passport\\&logoColor=white)
 
-```
-npm i -g mint
-```
+  \![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge\\&logo=JSON%20web%20tokens\\&logoColor=white)
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+  \![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge\\&logo=razorpay\\&logoColor=00C3FF)
 
-```
-mint dev
-```
+  \![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge\\&logo=cloudinary\\&logoColor=white)
 
-View your local preview at `http://localhost:3000`.
+  This is the backend server for **AncestroPedia**, a Family Tree Application. Built using **Node.js**, **Express**, **MongoDB**, and **Redis**, the backend handles user authentication, family tree management, order tracking, notifications, reports, and more.
 
-## Publishing changes
+  ---
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+  ## 🚀 Getting Started
 
-## Need help?
+  ### Requirements
 
-### Troubleshooting
+  \* Node.js \>= 16
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+  \* MongoDB
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
-- [Mintlify community](https://mintlify.com/community)
+  \* Redis
+
+  \* Cloudinary/ImageKit credentials
+
+  ### Install & Setup
+
+  \`\`\`bash
+
+  git clone https://github.com/DheerajVerma945/server-ancestropedia.git
+
+  cd ancestropedia-backend
+
+  npm install
+
+  \`\`\`
+
+  ### Environment Variables
+
+  Create `.env` from the sample:
+
+  \`\`\`bash
+
+  cp .env.example .env
+
+  \`\`\`
+
+  Update with:
+
+  \* `MONGO_URI`
+
+  \* `REDIS_URL`
+
+  \* `JWT_SECRET`
+
+  \* `RAZORPAY_KEY`, `RAZORPAY_SECRET`
+
+  \* `CLOUDINARY_*` / `IMAGEKIT_*`
+
+  ### Start Server
+
+  \`\`\`bash
+
+  npm start
+
+  \`\`\`
+
+  Server will run at: `http://localhost:7777`
+
+  ---
+
+  ## 🐳 Docker Support
+
+  Launch project with Docker:
+
+  \`\`\`bash
+
+  docker-compose up --build
+
+  \`\`\`
+
+  It sets up Node, Redis, and optionally MongoDB (if configured).
+
+  ---
+
+  ## 🧪 API Testing
+
+  \* Use [Postman](https://www.postman.com/) or [Thunder Client](https://www.thunderclient.com/)
+
+  \* Add `Authorization: Bearer <token>` header for protected routes
+
+  ---
+
+  ## ✅ Features
+
+  \* 👤 User Authentication
+
+  \* 🌳 Family Tree (up to 7\+ generations)
+
+  \* 💳 Razorpay payments
+
+  \* 🔗 Family link requests & approval
+
+  \* 📂 Folder & multimedia uploads
+
+  \* 📢 Notifications system
+
+  \* 🚼 Admin tools & token management
+
+  \* 🛠️ Well-structured modular code
+
+  ---
+
+  ## 📌 Contribution Guide
+
+  \* Fork the repository
+
+  \* Create a new branch
+
+  \* Commit and push your changes
+
+  \* Open a pull request
+
+  ---
+
+  ## 🧠 Author
+
+  Made with ❤️ by [\*\*Ancestropedia Team\*\*](https://ancestropedia.online)
+
+  ---
+
+  ## 📄 License
+
+  This project is licensed under the **MIT License**.
