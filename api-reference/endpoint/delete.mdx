@@ -1,4 +1,70 @@
 ---
-title: 'Delete Plant'
-openapi: 'DELETE /plants/{id}'
+title: 'DELETE APIs'
+description: 'All DELETE endpoints available in the Ancestropedia platform, excluding admin routes.'
+---
+
+# DELETE API Reference
+
+This section documents all `DELETE` endpoints used to remove data or records from the Ancestropedia platform. These endpoints require authentication unless otherwise noted and should be used with caution as they perform destructive operations.
+
+---
+
+## User Routes
+
+### `DELETE /post/delete/:id`
+
+Delete a specific post by its identifier.
+
+- **Access:** Private  
+- **Path Parameter:** `id` (Post ID)  
+- **Response:** Deletion confirmation message
+
+---
+
+## Tree Routes
+
+### `DELETE /remove/person`
+
+Remove a person from a family tree. This action may affect tree integrity and linked relationships.
+
+- **Access:** Private  
+- **Request Body:** Person identifier and tree context  
+- **Response:** Updated tree object after removal
+
+---
+
+## Folder Routes
+
+### `DELETE /removeFolder`
+
+Delete an entire folder created by the authenticated user. All content inside the folder should be removed or moved beforehand.
+
+- **Access:** Private  
+- **Request Body:** Folder identifier  
+- **Response:** Folder deletion confirmation
+
+---
+
+## Report Routes
+
+### `DELETE /abort/:id`
+
+Abort or cancel a previously submitted report using its ID. This is typically allowed only before review begins.
+
+- **Access:** Private  
+- **Path Parameter:** `id` (Report ID)  
+- **Response:** Report cancellation status
+
+---
+
+## Address Routes
+
+### `DELETE /remove`
+
+Delete a saved address from the authenticated user's address book.
+
+- **Access:** Private  
+- **Request Body:** Address identifier  
+- **Response:** Deletion confirmation
+
 ---

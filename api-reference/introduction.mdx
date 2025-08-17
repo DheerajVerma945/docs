@@ -1,33 +1,62 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'Comprehensive API documentation for the Ancestropedia backend platform.'
 ---
 
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+  This documentation provides an overview of the Ancestropedia API system. For specific endpoint usage, refer to the categorized API reference pages.
 </Note>
 
+# Ancestropedia API Documentation
 ## Welcome
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+Welcome to the official API documentation for **Ancestropedia**, a modern platform built to preserve and visualize family heritage through intelligent tree building, story sharing, and collaborative tools. These APIs power the core services of the Ancestropedia ecosystem, including user activity, relationship mapping, token systems, and administrative controls.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+This documentation is intended for developers integrating directly with the Ancestropedia backend or maintaining platform services.
+
+---
+
+## Overview
+
+Ancestropedia’s API is structured across multiple domains, including but not limited to:
+
+- **User Management**: Posting stories, searching individuals, managing blogs
+- **Tree Operations**: Creating and updating generational trees, editing relationships
+- **Token Systems**: Handling user-submitted access or data verification requests
+- **Authentication**: Email-password login, password resets, and social logins via Google
+- **Administrative APIs**: Moderation workflows for tokens, reports, and user-generated content
+- **Auxiliary Features**: Folder management, notifications, events, newsletter subscriptions, etc.
+
+The API follows REST principles, organized by HTTP methods (`GET`, `POST`, `PUT`, `DELETE`, `PATCH`) and grouped by route files in your application.
+
+---
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+Ancestropedia APIs use **secure, HTTP-only cookies** to manage authentication for logged-in users.
+
+After a successful login or signup request, a session cookie is issued and stored in the client. All protected API routes validate this cookie on every request using middleware.
+
+### Authentication Flow
+
+1. User logs in via `/auth/login`
+2. Backend issues a secure cookie (`Set-Cookie`) in the response
+3. The cookie is included automatically in subsequent requests (if using `credentials: "include"` in frontend fetch)
+
+### Security
+
+- Cookies are marked `HttpOnly`, `Secure`, and `SameSite=Lax`
+- All requests must originate from trusted frontend domains
+- Most routes require authentication unless explicitly public (e.g., newsletter subscribe, blogs)
+
+---
+
+## Response Format
+
+All endpoints return a consistent JSON structure:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+{
+  "message": "Success message",
+  "data": { ... }
+}

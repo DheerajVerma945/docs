@@ -102,7 +102,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://ancestropedia.vercel.app"
     }
   },
   "contextual": {
@@ -119,9 +119,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/ancestropedia",
+      "github": "https://github.com/ancestropedia",
+      "linkedin": "https://linkedin.com/company/ancestropedia"
     }
   }
 }

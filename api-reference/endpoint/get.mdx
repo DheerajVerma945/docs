@@ -1,4 +1,207 @@
 ---
-title: 'Get Plants'
-openapi: 'GET /plants'
+title: 'GET APIs'
+description: 'All GET endpoints available in the Ancestropedia platform, excluding admin routes.'
+---
+
+# GET API Reference
+
+This section documents all publicly and privately accessible `GET` endpoints in the Ancestropedia backend, grouped by functional domains.
+
+---
+
+## User Routes
+
+### `GET /post/myPosts`
+
+Fetch all posts created by the currently authenticated user.
+
+- **Access:** Private  
+- **Response:** List of post objects
+
+---
+
+### `GET /search/person`
+
+Search for a person using filters such as name, gender, region, profession, and age.
+
+- **Access:** Private  
+- **Query Parameters:** `name`, `gender`, `region`, `profession`, `age`  
+- **Response:** List of matched individuals
+
+---
+
+### `GET /fetch/blogs`
+
+Retrieve all publicly available blog entries.
+
+- **Access:** Public  
+- **Response:** Array of blog metadata
+
+---
+
+### `GET /fetch/tree`
+
+Fetch the full family tree associated with the authenticated user.
+
+- **Access:** Private  
+- **Response:** Tree object with members and relationships
+
+---
+
+## Tree Routes
+
+### `GET /getFullTree`
+
+Retrieve a full tree by providing a tree identifier or slug.
+
+- **Access:** Private  
+- **Query Parameters:** `treeId`, `slug`  
+- **Response:** Complete tree data with linked members
+
+---
+
+### `GET /getFullTreeUser`
+
+Retrieve the complete family tree of the currently authenticated user.
+
+- **Access:** Private  
+- **Response:** Full tree object linked to the user
+
+---
+
+## Token Request Routes
+
+### `GET /myTokenRequests`
+
+Retrieve all token requests submitted by the authenticated user.
+
+- **Access:** Private  
+- **Response:** Array of token request entries
+
+---
+
+### `GET /getSpecificTokenRequest`
+
+Fetch the details of a specific token request using its identifier.
+
+- **Access:** Private  
+- **Query Parameter:** `id`  
+- **Response:** Token request details
+
+---
+
+## Request Routes
+
+### `GET /getRequests`
+
+Retrieve all relationship or verification requests sent or received by the authenticated user.
+
+- **Access:** Private  
+- **Response:** Array of request objects
+
+---
+
+## Report Routes
+
+### `GET /myReports`
+
+Retrieve all reports submitted by the authenticated user.
+
+- **Access:** Private  
+- **Response:** Array of report entries
+
+---
+
+## Profile Routes
+
+### `GET /myData`
+
+Fetch profile data for the currently authenticated user.
+
+- **Access:** Private  
+- **Response:** User object with profile metadata
+
+---
+
+## Folder Routes
+
+### `GET /myFolders`
+
+Retrieve a list of folders created by the authenticated user.
+
+- **Access:** Private  
+- **Response:** Array of folder objects
+
+---
+
+### `GET /data`
+
+Fetch contents of a specific folder including files or posts.
+
+- **Access:** Private  
+- **Query Parameter:** `folderId`  
+- **Response:** Folder content object
+
+---
+
+## Order Routes
+
+### `GET /myDnaOrders`
+
+Retrieve all DNA kit orders placed by the authenticated user.
+
+- **Access:** Private  
+- **Response:** Array of DNA order entries
+
+---
+
+### `GET /myTreeOrders`
+
+Retrieve all wall art or tree product orders placed by the authenticated user.
+
+- **Access:** Private  
+- **Response:** Array of tree order objects
+
+---
+
+### `GET /place`
+
+Initiate the DNA order placement process.
+
+- **Access:** Private  
+- **Response:** Order confirmation object
+
+---
+
+## Notification Routes
+
+### `GET /fetch`
+
+Retrieve all notifications for the authenticated user.
+
+- **Access:** Private  
+- **Response:** Array of notification objects with read/unread status
+
+---
+
+## Event Routes
+
+### `GET /getEvents`
+
+Retrieve a list of global or user-specific events.
+
+- **Access:** Private  
+- **Response:** Array of event objects
+
+---
+
+## Address Routes
+
+### `GET /myAddresses`
+
+Fetch all addresses saved by the authenticated user.
+
+- **Access:** Private  
+- **Response:** Array of address records
+
 ---

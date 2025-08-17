@@ -1,4 +1,282 @@
 ---
-title: 'Create Plant'
-openapi: 'POST /plants'
+title: 'POST APIs'
+openapi: 'DELETE /plants/{id}'
+description: 'All POST endpoints available in the Ancestropedia platform, excluding admin routes.'
+---
+
+# POST API Reference
+
+This section documents all `POST` endpoints used to create or submit data in the Ancestropedia backend. These endpoints are grouped by functional domain and are secured with cookie-based authentication unless otherwise noted.
+
+---
+
+## User Routes
+
+### `POST /post/create`
+
+Create a new story or post associated with the authenticated user.
+
+- **Access:** Private  
+- **Request Body:** `title`, `content`, optional media  
+- **Response:** Created post object
+
+---
+
+### `POST /post/remove/bulk`
+
+Delete multiple posts in bulk by providing an array of post identifiers.
+
+- **Access:** Private  
+- **Request Body:** `postIds: string[]`  
+- **Response:** Deletion confirmation with count
+
+---
+
+## Tree Routes
+
+### `POST /createEmptyTree`
+
+Initialize a new, empty family tree for the user without adding members.
+
+- **Access:** Private  
+- **Request Body:** Tree metadata (e.g., name, visibility)  
+- **Response:** Tree object with generated ID
+
+---
+
+### `POST /createAndAddPerson`
+
+Create a new person node and add them to an existing family tree.
+
+- **Access:** Private  
+- **Request Body:** Person attributes, parent/spouse references  
+- **Response:** Updated tree object
+
+---
+
+### `POST /createTreeWithFamily`
+
+Create a new tree and populate it with predefined family members in a single request.
+
+- **Access:** Private  
+- **Request Body:** Tree metadata and family data array  
+- **Response:** Complete tree object with linked members
+
+---
+
+### `POST /recomended`
+
+Retrieve a list of trees recommended to the user based on profile, region, or cultural data.
+
+- **Access:** Private  
+- **Request Body:** Optional filters  
+- **Response:** Array of recommended tree previews
+
+---
+
+### `POST /addMember`
+
+Add a new member to an existing tree with relationship context (e.g., as child, spouse).
+
+- **Access:** Private  
+- **Request Body:** Member details and relation to anchor node  
+- **Response:** Updated tree object
+
+---
+
+## Token Request Routes
+
+### `POST /createTokenRequest`
+
+Submit a new token request for accessing or modifying protected data.
+
+- **Access:** Private  
+- **Request Body:** Target tree or person reference, justification  
+- **Response:** Created token request object
+
+---
+
+## Support Routes
+
+### `POST /create`
+
+Submit a general support message to the Ancestropedia team.
+
+- **Access:** Public  
+- **Request Body:** `subject`, `message`, `email`  
+- **Response:** Acknowledgment of receipt
+
+---
+
+## Request Routes
+
+### `POST /sendRequest`
+
+Send a relationship claim or merge request to another user or tree.
+
+- **Access:** Private  
+- **Request Body:** Target user or tree ID, type of request  
+- **Response:** Sent request confirmation
+
+---
+
+## Report Routes
+
+### `POST /submit`
+
+Submit a report regarding offensive content, incorrect data, or misuse.
+
+- **Access:** Private  
+- **Request Body:** Target ID, reason, optional description  
+- **Response:** Submitted report details
+
+---
+
+## Notification Routes
+
+### `POST /create`
+
+Create a custom notification for a specific user or system event.
+
+- **Access:** Private  
+- **Request Body:** Notification content, target user ID  
+- **Response:** Notification entry confirmation
+
+---
+
+## Newsletter Routes
+
+### `POST /sub`
+
+Subscribe to the Ancestropedia newsletter by providing a valid email address.
+
+- **Access:** Public  
+- **Request Body:** `email`  
+- **Response:** Subscription status and metadata
+
+---
+
+## Folder Routes
+
+### `POST /create`
+
+Create a new folder for organizing user-generated content.
+
+- **Access:** Private  
+- **Request Body:** Folder name and metadata  
+- **Response:** Folder object
+
+---
+
+### `POST /addPosts`
+
+Add one or more posts into an existing folder.
+
+- **Access:** Private  
+- **Request Body:** Folder ID, post ID(s)  
+- **Response:** Folder update confirmation
+
+---
+
+### `POST /createInFolder`
+
+Create a new post directly inside a specific folder.
+
+- **Access:** Private  
+- **Request Body:** Folder ID, post content  
+- **Response:** Created post object within folder context
+
+---
+
+## Auth Routes
+
+### `POST /signup`
+
+Register a new user with email, name, and password.
+
+- **Access:** Public  
+- **Request Body:** `email`, `password`, `name`  
+- **Response:** Authentication cookie and user object
+
+---
+
+### `POST /login`
+
+Authenticate user credentials and establish a login session via secure cookies.
+
+- **Access:** Public  
+- **Request Body:** `email`, `password`  
+- **Response:** Authentication cookie and user profile
+
+---
+
+### `POST /logout`
+
+Log the user out by clearing the session cookie.
+
+- **Access:** Private  
+- **Response:** Logout confirmation message
+
+---
+
+### `POST /mail/reset-pass`
+
+Initiate a password reset email to the user's registered address.
+
+- **Access:** Public  
+- **Request Body:** `email`  
+- **Response:** Email dispatch status
+
+---
+
+### `POST /mail/verify-mail`
+
+Send a verification link to the user's email for confirming their account.
+
+- **Access:** Public  
+- **Request Body:** `email`  
+- **Response:** Email dispatch status
+
+---
+
+### `POST /verifypassToken`
+
+Verify the password reset token.
+
+- **Access:** Public  
+- **Request Body:** `token`  
+- **Response:** Token validation result
+
+---
+
+### `POST /verifyMailToken`
+
+Verify the email confirmation token.
+
+- **Access:** Public  
+- **Request Body:** `token`  
+- **Response:** Token validation result
+
+---
+
+### `POST /reset-pass`
+
+Reset the user's password using a valid reset token.
+
+- **Access:** Public  
+- **Request Body:** `token`, `newPassword`  
+- **Response:** Password update confirmation
+
+---
+
+## Address Routes
+
+### `POST /add`
+
+Add a new address to the user's saved addresses.
+
+- **Access:** Private  
+- **Request Body:** Address fields (e.g., name, street, city, postal code)  
+- **Response:** Saved address object
+
 ---
